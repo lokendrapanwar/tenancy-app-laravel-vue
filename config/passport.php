@@ -13,16 +13,6 @@ return [
     |
     */
 
-    // Database Connection for Passport
-    'storage' => [
-        'database' => [
-            'connection' => null,
-        ],
-    ],
-
-
-    'key_path' => env('OAUTH_KEY_PATH', 'storage'),
-
     'guard' => 'web',
 
     /*
@@ -68,5 +58,14 @@ return [
         'id' => env('PASSPORT_PERSONAL_ACCESS_CLIENT_ID'),
         'secret' => env('PASSPORT_PERSONAL_ACCESS_CLIENT_SECRET'),
     ],
+
+    // Database Connection for Passport
+    'storage' => [
+        'database' => [
+            'connection' => null,
+        ],
+    ],
+
+    'key_path' => env('OAUTH_KEY_PATH', 'storage')
 
 ];

@@ -10,6 +10,14 @@ use Illuminate\Support\Facades\Hash;
 
 class TenantController extends Controller
 {
+    public function index()
+    {
+        return [
+            'tenant' => tenant(),
+            'user' => User::get(),
+        ];
+    }
+
     // Create Tenant
     public function createTenant(Request $request)
     {
@@ -30,11 +38,11 @@ class TenantController extends Controller
         ]);
         $tenant->run(function() use ($request){
             // Create User
-            // User::create([
-            //     'name' => $request->companyName,
-            //     'email' => $request->email,
-            //     'password' => Hash::make($request->password),
-            // ]);
+            User::create([
+                'name' => $request->companyName,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+            ]);
         });
         return response()->json([
             'message' => 'Tenant created successfully',

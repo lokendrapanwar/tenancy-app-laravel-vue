@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
+use Laravel\Passport\Passport;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -21,16 +22,6 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Passport::$registersRoutes = false;
-
-
-        Route::group([
-            'as' => 'passport.',
-            'middleware' => [InitializeTenancyByDomain::class], // Use tenancy initialization middleware of your choice
-            'prefix' => config('passport.path', 'oauth'),
-            'namespace' => 'Laravel\Passport\Http\Controllers',
-        ], function () {
-            $this->loadRoutesFrom(__DIR__ . "/../../vendor/laravel/passport/src/../routes/web.php");
-        });
+        Passport::loadKeysFrom(base_path(config('passport.key_path')));
     }
 }
