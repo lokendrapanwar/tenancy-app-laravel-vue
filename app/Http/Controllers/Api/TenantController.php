@@ -27,7 +27,6 @@ class TenantController extends Controller
             'password' => 'required',
         ]);
 
-
         // Create Tenant Database
         $tenant = Tenant::create(['id' => $request->companyName]);
 
