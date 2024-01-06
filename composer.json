@@ -1,8 +1,16 @@
 {
-    "name": "laravel/laravel",
+    "name": "tenancy/laravel",
     "type": "project",
+    "authors": [
+        {
+            "name": "Lokendra Singh Panwar",
+            "email": "lokendrapanwar27@gmail.com",
+            "role": "Developer"
+
+        }
+    ],
     "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
+    "keywords": ["laravel", "framework", "tenancy"],
     "license": "MIT",
     "require": {
         "php": "^8.1",

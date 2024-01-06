@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\TenantController;
+use App\Http\Controllers\Api\SuperAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +16,12 @@ use App\Http\Controllers\Api\TenantController;
 |
 */
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+Route::middleware(['auth:api'])->group(function () {
+    Route::post('/create-company', [TenantController::class, 'createCompany']);
+    Route::get('/domains', [TenantController::class, 'getDomains']);
 
+    // logout
+    Route::get('/admin/logout', [SuperAdminController::class, 'logout']);
+});
 
-Route::post('/createtenant', [TenantController::class, 'createTenant']);
+Route::post('/adminlogin', [SuperAdminController::class, 'login']);
