@@ -47,11 +47,17 @@ class UserController extends Controller
     // Passport Logout API
     public function logout(Request $request)
     {
-        $token = $request->user()->token();
-        $token->revoke();
+        try {
+            if ($request->user()) {
+                $request->user()->token()->revoke();
+            } 
+        } catch (\Exception $e) {
+            \Log::error($e->getMessage());
+            return response()->json(['error' => 'Unable to log out'], 500);
+        }
         return response()->json(['message' => 'You have been successfully logged out!'], 200);
     }
-
+    
     // User Data
     public function userData(Request $request)
     {

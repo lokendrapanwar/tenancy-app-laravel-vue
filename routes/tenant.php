@@ -89,10 +89,10 @@ Route::middleware([
     PreventAccessFromCentralDomains::class,
 ])->group(function () 
 {
-    Route::get('/', function () 
+    Route::get('/{any}', function () 
     {
         $tenant = tenant()->toArray();
         //return 'This is your multi-tenant application. The id of the current tenant is ' . tenant('id');
         return view('welcome')->withTenant($tenant);
-    });
+    })->where('any', '.*');
 });

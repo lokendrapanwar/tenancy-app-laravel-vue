@@ -12,16 +12,20 @@
                                 d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
                         </svg>
                     </li>
-                    <li class="flex items-center">
+                    <li v-if="isViewUser()" class="flex items-center">
+                        <a href="#" class="text-gray-600">View User</a>
+                    </li>
+                    <li v-else class="flex items-center">
                         <a href="#" class="text-gray-600">Add User</a>
                     </li>
                 </ol>
             </nav>
+
             <!-- breadcrumb end -->
             <div class="lg:flex justify-between items-center mb-6">
-                <p class="text-2xl font-semibold mb-2 lg:mb-0">Add User</p>
+                <p v-if="!isViewUser()" class="text-2xl font-semibold mb-2 lg:mb-0">Add User</p>
                 <router-link to="/dashboard"
-                    class="px-4 py-2 text-gray-200 bg-gray-800 rounded-md hover:bg-gray-700 focus:outline-none focus:bg-gray-700">
+                    class="ml-auto bg-gray-800 hover:bg-gray-600 focus:outline-none rounded-lg px-6 py-2 text-white font-semibold shadow mr-2">
                     Back to dashboard
                 </router-link>
             </div>
