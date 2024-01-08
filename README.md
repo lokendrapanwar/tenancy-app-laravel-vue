@@ -35,10 +35,17 @@ Follow these steps to install the project:
 1. Run the following commands in your terminal:
 
     ```bash
+    
+    npm install
+    npm run build
+
     composer install
     php artisan key:generate
     php artisan migrate
     php artisan db:seed
+
+    php artisan passport:keys
+    php artisan serve
     ```
 
 ## Login as Super Admin

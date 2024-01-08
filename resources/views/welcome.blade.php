@@ -9,7 +9,7 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-        @vite('resources/css/app.css')
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
         <script>
             window.tenant = {!! json_encode(isset($tenant) && !empty($tenant) ? $tenant : null) !!};
         </script>
@@ -18,6 +18,6 @@
         <div id="app" class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
             <Login />
         </div>
-        @vite('resources/js/app.js')
+       
     </body>
 </html>
