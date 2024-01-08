@@ -11,8 +11,7 @@ In a multi-tenant architecture, the application is designed to provide customize
 
 [The software requirements.]
 
-- Node.js (version 6)
-- npm (version 16)
+- Node (version 16)
 - PHP (version 8.2)
 - Laravel (version 10)
 - MySQL (version 8.0)
